@@ -1,0 +1,11 @@
+{
+    "Lua.diagnostics.globals": [
+        "hl",
+        "fileManager",
+        "terminal",
+        "menu"
+    ],
+    "Lua.diagnostics.disable": [
+        "undefined-global"
+    ]
+}
