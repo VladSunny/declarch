@@ -5,7 +5,8 @@
         "terminal",
         "menu",
         "next_wallpaper",
-        "prev_wallpaper"
+        "prev_wallpaper",
+        "screen_lock"
     ],
     "Lua.diagnostics.disable": [
         "undefined-global"
