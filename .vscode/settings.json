@@ -3,7 +3,9 @@
         "hl",
         "fileManager",
         "terminal",
-        "menu"
+        "menu",
+        "next_wallpaper",
+        "prev_wallpaper"
     ],
     "Lua.diagnostics.disable": [
         "undefined-global"

@@ -4,6 +4,11 @@
 
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
+-- Custom scripts
+--  Wallpapers
+hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd(next_wallpaper))
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd(prev_wallpaper))
+
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + X", hl.dsp.window.close())
