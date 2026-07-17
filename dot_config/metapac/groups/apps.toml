@@ -1,0 +1,12 @@
+[arch]
+packages = [
+  "firefox",
+  "google-chrome",
+  "telegram-desktop",
+  
+  "nemo",
+  "file-roller",
+  "nemo-fileroller",
+
+  "obs-studio",
+]

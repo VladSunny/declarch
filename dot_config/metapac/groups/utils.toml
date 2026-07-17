@@ -1,0 +1,13 @@
+[arch]
+packages = [
+  "chezmoi",
+  "metapac",
+  "wl-clipboard",
+  "xdg-utils",
+  "zram-generator",
+  "polkit-kde-agent",
+  "appstream",
+  "hwloc",
+  "libblake3",
+  "libfyaml",
+]

@@ -1,0 +1,10 @@
+[arch]
+packages = [
+  "networkmanager",
+  "iwd",
+  "bluez",
+  "bluez-utils",
+  "sing-box",
+  "xray-bin",
+  "v2rayn-bin"
+]

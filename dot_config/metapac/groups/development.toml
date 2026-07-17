@@ -1,0 +1,8 @@
+[arch]
+packages = [
+  "git",
+  "lazygit",
+  "nano",
+  "vim",
+  "visual-studio-code-bin",
+]

@@ -1,0 +1,14 @@
+[arch]
+packages = [
+  "hypridle",
+  "hyprland",
+  "hyprlock",
+  "qt5-wayland",
+  "qt6-wayland",
+  "xdg-desktop-portal-hyprland",
+  "xorg-xwayland",
+  "dunst",
+  "wofi",
+  "waybar",
+  "awww",
+]

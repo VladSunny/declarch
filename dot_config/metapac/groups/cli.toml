@@ -1,0 +1,8 @@
+[arch]
+packages = [
+  "kitty",
+  "bat",
+  "fastfetch",
+  "btop",
+  "starship",
+]

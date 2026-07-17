@@ -1,0 +1,6 @@
+[arch]
+packages = [
+  "cups",
+  "cups-pk-helper",
+  "system-config-printer",
+]

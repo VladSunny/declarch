@@ -1,0 +1,8 @@
+[arch]
+packages = [
+  "nvidia-container-toolkit",
+  "nvidia-open",
+  "nvidia-settings",
+  "nvidia-utils",
+  "lib32-nvidia-utils",
+]

@@ -1,0 +1,14 @@
+[arch]
+packages = [
+  "noto-fonts",
+  "noto-fonts-emoji",
+  "ttf-dejavu", 
+
+  "ttf-jetbrains-mono",
+  "ttf-fira-code",
+  "ttf-hack",
+
+  "ttf-jetbrains-mono-nerd",
+
+  "libadwaita",
+]

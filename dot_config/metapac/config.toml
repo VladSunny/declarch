@@ -6,4 +6,18 @@ hostname_groups_enabled = true
 package_manager = "paru"
 
 [hostname_groups]
-"declarch-pc" = []
+"declarch-pc" = [
+    "base",
+    "utils",
+    "intel",
+    "nvidia",
+    "core-graphics",
+    "fonts",
+    "audio",
+    "hypr",
+    "apps",
+    "cli",
+    "development",
+    "network",
+    "printing",
+]

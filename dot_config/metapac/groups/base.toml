@@ -1,0 +1,20 @@
+[arch]
+packages = [
+  "base",
+  "base-devel",
+  "linux",
+  "linux-firmware",
+  "intel-ucode",
+  "sof-firmware",
+  "sudo",
+  "grub",
+  "efibootmgr",
+  "mkinitcpio",
+  "wget",
+
+  "paru",
+  "paru-debug",
+
+  "fish",
+  "fisher",
+]

@@ -1,0 +1,10 @@
+[arch]
+packages = [
+  "intel-compute-runtime",
+  "intel-gpu-tools",
+  "intel-media-driver",
+  "lib32-libva-intel-driver",
+  "lib32-vulkan-intel",
+  "vulkan-intel",
+  "onetbb",
+]

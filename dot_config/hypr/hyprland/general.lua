@@ -119,10 +119,10 @@ hl.config({
 
 hl.config({
     input = {
-        kb_layout  = "us",
+        kb_layout  = "us, ru",
         kb_variant = "",
         kb_model   = "",
-        kb_options = "",
+        kb_options = "grp:win_space_toggle",
         kb_rules   = "",
 
         follow_mouse = 1,

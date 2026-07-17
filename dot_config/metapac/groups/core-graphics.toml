@@ -1,0 +1,9 @@
+[arch]
+packages = [
+  "libva-utils",
+  "mesa-utils",
+  "vulkan-icd-loader",
+  "vulkan-mesa-layers",
+  "vulkan-tools",
+  "lib32-vulkan-icd-loader",
+]
