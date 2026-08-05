@@ -8,7 +8,7 @@ packages = [
   "xdg-desktop-portal-hyprland",
   "xorg-xwayland",
   "dunst",
-  "wofi",
+  "rofi-wayland",
   "waybar",
   "awww",
 ]

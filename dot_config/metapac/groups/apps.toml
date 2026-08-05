@@ -3,7 +3,8 @@ packages = [
   "firefox",
   "google-chrome",
   "telegram-desktop",
-  
+
+  "yazi",
   "nemo",
   "file-roller",
   "nemo-fileroller",

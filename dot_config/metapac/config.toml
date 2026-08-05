@@ -20,4 +20,5 @@ package_manager = "paru"
     "development",
     "network",
     "printing",
+    "themes"
 ]

@@ -17,7 +17,7 @@ hl.window_rule ({
     match = {
         class = "nemo"
     },
-    opacity = "0.9 0.85 1.0",
+    opacity = "0.95 0.9 1.0",
     float = true,
     size = "907 525"
 })

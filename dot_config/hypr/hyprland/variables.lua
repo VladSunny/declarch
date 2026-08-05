@@ -4,7 +4,7 @@
 
 terminal    = "kitty"
 fileManager = "nemo"
-menu        = "pkill wofi || wofi --show drun"
+menu        = "pkill rofi || rofi -show drun"
 screen_lock = "hyprlock"
 
 --------------------

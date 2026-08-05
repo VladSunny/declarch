@@ -1,0 +1,6 @@
+[arch]
+packages = [
+  "arc-gtk-theme",
+#   "tokyonight-gtk-theme-git",
+#   "nordic-theme"
+]

@@ -5,7 +5,7 @@ STATE_FILE="/tmp/hyprpaper_index"
 
 mapfile -d '' wallpapers < <(
     find "$WALLPAPER_DIR" -maxdepth 1 -type f \
-    \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) \
+    \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" -o -iname "*.gif" \) \
     -print0 | sort -z
 )
 
