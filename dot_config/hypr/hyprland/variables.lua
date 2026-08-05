@@ -14,3 +14,4 @@ screen_lock    = "hyprlock"
 
 next_wallpaper = "~/.config/hypr/scripts/wallpaper-next.sh"
 prev_wallpaper = "~/.config/hypr/scripts/wallpaper-prev.sh"
+bar            = "~/.config/hypr/scripts/toggle-waybar.sh"
