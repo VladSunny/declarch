@@ -6,7 +6,9 @@
         "menu",
         "next_wallpaper",
         "prev_wallpaper",
-        "screen_lock"
+        "screen_lock",
+        "fileManagerGUI",
+        "fileManagerTUI"
     ],
     "Lua.diagnostics.disable": [
         "undefined-global"

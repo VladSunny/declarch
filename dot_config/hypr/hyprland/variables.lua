@@ -2,10 +2,11 @@
 ------- APPS ------
 -------------------
 
-terminal    = "kitty"
-fileManager = "nemo"
-menu        = "pkill rofi || rofi -show drun"
-screen_lock = "hyprlock"
+terminal       = "kitty"
+fileManagerGUI = "nemo"
+fileManagerTUI = "kitty --class yazi_float -e yazi"
+menu           = "pkill rofi || rofi -show drun"
+screen_lock    = "hyprlock"
 
 --------------------
 -- CUSTOM SCRIPTS --

@@ -23,6 +23,15 @@ hl.window_rule ({
 })
 
 hl.window_rule ({
+    name = 'yazi',
+    match = {
+        class = "yazi_float"
+    },
+    float = true,
+    size = "907 525"
+})
+
+hl.window_rule ({
     name = "telegram",
     match = {
         class = "org.telegram.desktop"
