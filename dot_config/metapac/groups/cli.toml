@@ -6,5 +6,6 @@ packages = [
   "btop",
   "starship",
   "exa",
-  "nwg-look"
+  "nwg-look",
+  "cava"
 ]

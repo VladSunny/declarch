@@ -9,6 +9,7 @@ packages = [
   "xorg-xwayland",
   "dunst",
   "rofi-wayland",
-  "waybar",
+  # "waybar",
+  "waybar-cava",
   "awww",
 ]
