@@ -1,6 +1,7 @@
 [arch]
 packages = [
   "arc-gtk-theme",
+  "nwg-look",
 #   "tokyonight-gtk-theme-git",
 #   "nordic-theme"
 ]
