@@ -1,8 +1,34 @@
 [arch]
 packages = [
+  # Utils
   "git",
   "lazygit",
+  # "lazydocker",
+
+  # Editors
   "nano",
   "vim",
+  "nvim",
   "visual-studio-code-bin",
+
+  # Python
+  "uv",
+
+  # C++
+  "gcc",
+  "gdb",
+  # "codelldb",
+  "lldb",
+  "valgrind",
+  "clang",
+  "cmake",
+
+  # Node js
+  "mise",
+
+  # Rust
+  "rustup",
 ]
+
+[mise]
+packages = [{name = "node", options = { version = "lts" }}]
