@@ -7,9 +7,8 @@
 hl.window_rule({
     name = "vscode",
     match = {
-        class = "code"
+        class = "code",
     },
-    opacity = "0.98 0.95 1.0"
 })
 
 hl.window_rule ({
@@ -17,7 +16,6 @@ hl.window_rule ({
     match = {
         class = "nemo"
     },
-    opacity = "0.95 0.9 1.0",
     float = true,
     size = "907 525"
 })
@@ -34,9 +32,8 @@ hl.window_rule ({
 hl.window_rule ({
     name = "telegram",
     match = {
-        class = "org.telegram.desktop"
+        class = "org.telegram.desktop",
     },
-    opacity = "0.9 0.85 1.0"
 })
 
 hl.window_rule ({
@@ -44,7 +41,6 @@ hl.window_rule ({
     match = {
         class = "kitty"
     },
-    opacity = "0.9 0.85 1.0",
     float = true,
     size = "866 491"
 })
