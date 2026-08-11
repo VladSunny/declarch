@@ -5,7 +5,8 @@
 terminal       = "kitty"
 fileManagerGUI = "nemo"
 fileManagerTUI = "kitty --class yazi_float -e yazi"
-menu           = "pkill rofi || rofi -show drun"
+menu           = "pkill rofi; rofi -show drun -theme ~/.config/rofi/smoky-compact.rasi"
+menuSpotlight  = "pkill rofi; rofi -show drun -theme ~/.config/rofi/smoky-spotlight.rasi"
 screen_lock    = "hyprlock"
 
 --------------------

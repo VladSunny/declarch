@@ -1,0 +1,10 @@
+configuration {
+    modes: "drun";
+    font: "Inter 14";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    application-fallback-icon: "application-x-executable";
+    drun-display-format: "{name}";
+    ellipsize-mode: "end";
+    m: -4;
+}

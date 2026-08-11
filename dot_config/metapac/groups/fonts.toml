@@ -1,5 +1,6 @@
 [arch]
 packages = [
+  "inter-font",
   "noto-fonts",
   "noto-fonts-emoji",
   "ttf-dejavu", 

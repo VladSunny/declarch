@@ -1,0 +1,130 @@
+* {
+    void: #0C0E12;
+    canvas: #111319;
+    base: #171A21;
+    surface: #1D212A;
+    raised: #252A35;
+    overlay: #303642;
+    border: #3B4251;
+    text: #D5DAE5;
+    subtext: #ADB5C5;
+    muted: #778093;
+    lavender: #B7A7D8;
+    amber: #C3A36F;
+
+    background-color: transparent;
+    text-color: var(text);
+}
+
+window {
+    width: 640px;
+    location: center;
+    anchor: center;
+    transparency: "real";
+    background-color: #171A21F5;
+    border: 1px;
+    border-color: var(border);
+    border-radius: 10px;
+    padding: 12px;
+    children: [ mainbox ];
+}
+
+mainbox {
+    spacing: 12px;
+    children: [ inputbar, message, listview, textbox-hint ];
+}
+
+inputbar {
+    padding: 12px;
+    spacing: 12px;
+    background-color: var(surface);
+    border-radius: 6px;
+    children: [ icon-search, entry, num-filtered-rows ];
+}
+
+icon-search {
+    expand: false;
+    filename: "system-search";
+    size: 20px;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}
+
+entry {
+    placeholder: "";
+    placeholder-color: var(muted);
+    text-color: var(text);
+    vertical-align: 0.5;
+}
+
+num-filtered-rows {
+    expand: false;
+    text-color: var(muted);
+    vertical-align: 0.5;
+}
+
+message {
+    padding: 8px 12px;
+    background-color: var(surface);
+    border: 0px 0px 0px 2px;
+    border-color: var(amber);
+    border-radius: 6px;
+}
+
+message textbox {
+    text-color: var(subtext);
+}
+
+listview {
+    lines: 8;
+    columns: 1;
+    fixed-height: false;
+    dynamic: true;
+    scrollbar: false;
+    spacing: 4px;
+}
+
+element {
+    padding: 8px 12px;
+    spacing: 12px;
+    background-color: transparent;
+    border: 0px 0px 0px 2px;
+    border-color: transparent;
+    border-radius: 6px;
+    text-color: var(subtext);
+    children: [ element-icon, element-text ];
+}
+
+element selected.normal {
+    background-color: var(raised);
+    border-color: var(lavender);
+    text-color: var(text);
+}
+
+element selected.active {
+    background-color: var(raised);
+    border-color: var(lavender);
+    text-color: var(text);
+}
+
+element selected.urgent {
+    background-color: var(raised);
+    border-color: var(lavender);
+    text-color: var(text);
+}
+
+element-icon {
+    size: 28px;
+    vertical-align: 0.5;
+}
+
+element-text {
+    vertical-align: 0.5;
+    highlight: bold #B7A7D8;
+}
+
+textbox-hint {
+    content: "";
+    text-color: var(muted);
+    horizontal-align: 0.0;
+}
