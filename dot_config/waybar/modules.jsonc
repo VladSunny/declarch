@@ -51,14 +51,7 @@
     "tooltip": false
   },
   "hyprland/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "active": "",
-      "visible": "",
-      "persistent": "",
-      "empty": "",
-      "default": ""
-    },
+    "format": "{id}",
     "tooltip": false,
     "all-outputs": false,
     "sort-by": "number",
