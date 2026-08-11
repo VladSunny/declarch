@@ -1,85 +1,254 @@
 {
-    "hyprland/window": {
-      "format": "{class}  {title}",
-      "icon": false,
-      "max-length": 50,
-      "separate-outputs": true,
-      "tooltip": false
+  "group/context": {
+    "orientation": "horizontal",
+    "modules": [
+      "hyprland/workspaces",
+      // "cava",
+      "mpris"
+    ]
+  },
+  "group/status": {
+    "orientation": "horizontal",
+    "modules": [
+      "group/hardware",
+      "group/connectivity",
+      "privacy",
+      "tray",
+      "clock"
+    ]
+  },
+  "group/hardware": {
+    "orientation": "horizontal",
+    "modules": [
+      "cpu",
+      "custom/gpu",
+      "memory",
+      "temperature",
+      "disk"
+    ]
+  },
+  "group/connectivity": {
+    "orientation": "horizontal",
+    "modules": [
+      "network",
+      "bluetooth",
+      "wireplumber#sink"
+    ]
+  },
+
+  "hyprland/window#wide": {
+    "format": "󰖯  {title}",
+    "icon": false,
+    "max-length": 64,
+    "separate-outputs": true,
+    "tooltip": false
+  },
+  "hyprland/window#portrait": {
+    "format": "󰖯  {title}",
+    "icon": false,
+    "max-length": 28,
+    "separate-outputs": true,
+    "tooltip": false
   },
   "hyprland/workspaces": {
-      "format": "{icon}",
-      "tooltip": false,
-      "all-outputs": false,
-      "sort-by-number": true,
-      "disable-scroll": false,
-      "on-scroll-up": "hyprctl dispatch workspace +1",
-      "on-scroll-down": "hyprctl dispatch workspace -1",
-      "active-only": false,
-      "show-special": false,
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "visible": "",
+      "persistent": "",
+      "empty": "",
+      "default": ""
+    },
+    "tooltip": false,
+    "all-outputs": false,
+    "sort-by": "number",
+    "disable-scroll": false,
+    "on-scroll-up": "hyprctl dispatch workspace +1",
+    "on-scroll-down": "hyprctl dispatch workspace -1",
+    "active-only": false,
+    "show-special": false
+  },
+
+  "cava": {
+    "framerate": 30,
+    "autosens": 1,
+    "bars": 8,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 10000,
+    "sleep_timer": 2,
+    "hide_on_silence": true,
+    "method": "pipewire",
+    "source": "auto",
+    "stereo": true,
+    "reverse": false,
+    "bar_delimiter": 0,
+    "monstercat": false,
+    "waves": false,
+    "noise_reduction": 77,
+    "input_delay": 2,
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "tooltip": false
+  },
+  "mpris": {
+    "format": "{status_icon}",
+    "format-stopped": "",
+    "status-icons": {
+      "playing": "󰐊",
+      "paused": "󰏤",
+      "stopped": "󰓛"
+    },
+    "tooltip-format": "󰎈  {title}\n󰠃  {artist}\n󰀥  {album}\n󰐎  {position} / {length}\n󰝚  {player}",
+    "enable-tooltip-len-limits": false
+  },
+
+  "cpu": {
+    "interval": 2,
+    "format": "󰻠",
+    "tooltip-format": "󰻠  {usage}%\n󰓅  {avg_frequency:0.1f} GHz\n󰑮  {load}",
+    "states": {
+      "warning": 75,
+      "critical": 90
+    },
+    "on-click": "kitty --class btop -e btop"
+  },
+  "custom/gpu": {
+    "interval": 2,
+    "exec": "~/.config/waybar/scripts/gpu.sh",
+    "return-type": "json",
+    "format": "󰢮  {text}",
+    "hide-empty-text": true,
+    "on-click": "kitty --class btop -e btop"
+  },
+  "memory": {
+    "interval": 5,
+    "format": "󰍛",
+    "tooltip-format": "󰍛  {used:0.1f} / {total:0.1f} GiB ({percentage}%)\n󰓡  {swapUsed:0.1f} / {swapTotal:0.1f} GiB ({swapPercentage}%)",
+    "states": {
+      "warning": 75,
+      "critical": 90
+    },
+    "on-click": "kitty --class btop -e btop"
+  },
+  "temperature": {
+    "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
+    "input-filename": "temp1_input",
+    "interval": 5,
+    "warning-threshold": 70,
+    "critical-threshold": 85,
+    "format": "󰔏",
+    "format-warning": "󰔏",
+    "format-critical": "󰔏",
+    "tooltip-format": "󰔏  {temperatureC}°C",
+    "on-click": "kitty --class btop -e btop"
+  },
+  "disk": {
+    "path": "/",
+    "interval": 30,
+    "unit": "GiB",
+    "format": "󰋊",
+    "tooltip-format": "󰋊  {specific_used:0.1f} / {specific_total:0.1f} GiB ({percentage_used}%)\n󰆓  {specific_free:0.1f} GiB",
+    "states": {
+      "warning": 80,
+      "critical": 92
+    },
+    "on-click": "kitty --class btop -e btop"
+  },
+
+  "network": {
+    "interval": 2,
+    "family": "ipv4",
+    "format": "󰈀",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰈀",
+    "format-linked": "󰈀",
+    "format-disconnected": "󰤭",
+    "format-disabled": "󰤮",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip-format": "󰈀  {ifname}\n󰩟  {ipaddr}/{cidr}\n󰇚  {bandwidthDownBytes}\n󰕒  {bandwidthUpBytes}",
+    "tooltip-format-wifi": "󰤨  {essid} ({signalStrength}%)\n󰩟  {ipaddr}/{cidr}\n󰇚  {bandwidthDownBytes}\n󰕒  {bandwidthUpBytes}",
+    "tooltip-format-ethernet": "󰈀  {ifname}\n󰩟  {ipaddr}/{cidr}\n󰇚  {bandwidthDownBytes}\n󰕒  {bandwidthUpBytes}",
+    "tooltip-format-disconnected": "󰤭  offline",
+    "tooltip-format-disabled": "󰤮  disabled",
+    "on-click": "kitty --class nmtui -e nmtui"
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-off": "󰂲",
+    "format-on": "󰂯",
+    "format-connected": "󰂱",
+    "format-no-controller": "󰂲",
+    "tooltip-format": "󰂯  {controller_alias}\n󰂲  0",
+    "tooltip-format-disabled": "󰂲  disabled",
+    "tooltip-format-off": "󰂲  off",
+    "tooltip-format-on": "󰂯  ready",
+    "tooltip-format-connected": "󰂯  {controller_alias}\n󰂱  {num_connections}\n{device_enumerate}",
+    "tooltip-format-no-controller": "󰂲  unavailable",
+    "tooltip-format-enumerate-connected": "󰂱  {device_alias}",
+    "tooltip-format-enumerate-connected-battery": "󰂱  {device_alias}  󰁹 {device_battery_percentage}%",
+    "on-click": "kitty --class bluetoothctl -e bluetoothctl"
+  },
+  "wireplumber#sink": {
+    "format": "{icon}",
+    "format-muted": "󰝟",
+    "format-icons": ["󰕿", "󰖀", "󰕾"],
+    "tooltip-format": "󰕾  {volume}%\n󰓃  {node_name}",
+    "scroll-step": 5,
+    "max-volume": 100,
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+  "privacy": {
+    "icon-spacing": 4,
+    "icon-size": 18,
+    "transition-duration": 160,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 20
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        "tooltip-icon-size": 20
+      }
+    ],
+    "ignore-monitor": true,
+    "ignore": [
+      {
+        "type": "audio-in",
+        "name": "cava"
+      }
+    ]
   },
 
   "tray": {
-    "format": "{icon}",
-    "tooltip": true,
-    "icon-size": 18,
-    "spacing": 0
+    "icon-size": 16,
+    "spacing": 4,
+    "show-passive-items": false
   },
-  "pulseaudio#source": {
-    "format": "{icon} {volume}%",
-    "format-muted": "󰝟",
-    "tooltip": true,
-    "tooltip-format": "Volume: {volume}%",
-    "format-icons": {
-      "headphone": "",
-      "default": [
-        "",
-        "",
-        ""
-      ],
-    },
-    "scroll-step": 5,
-    "on-click": "pavucontrol"
-  },
-  "memory": {
-    "format": "mem: {used:0.1f}G",
-    "tooltip": true,
-    "tooltip-format": "RAM: Used {used:0.1f}G / Free {total:0.1f}G",
-    "interval": 4,
-  },
-  "disk": {
-    "interval": 30,
-    "unit": "GB",
-    "format": "disk: {specific_used:0.2f}G",
-    "path": "/",
-    "tooltip": true,
-    "tooltip-format": "Root: Used {specific_used:0.2f}G / free {specific_free:0.2f}G",
-  },
-
   "clock": {
-  	"format": "{:%H:%M}",
-  	"format-alt": "{:%A, %B %d, %Y (%R)} 󰃰 ",
-   	"tooltip-format": "<tt><small>{calendar}</small></tt>",
-   	"calendar": {
-   		"mode"             : "year",
-   		"mode-mon-col"     : 3,
-   		"weeks-pos"        : "right",
-   		"first-day-of-week": 1,
-   		"on-scroll"        : 1,
-   		"on-click-right"   : "mode",
-   		"format": {
-   			"months":     "<span color='#ffead3'><b>{}</b></span>",
-   			"days":       "<span color='#ecc6d9'><b>{}</b></span>",
-   			"weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-   			"weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-   			"today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-   		}
-   	},
-  },
-  "custom/cava": {
-    "exec": "~/.config/waybar/scripts/cava.sh",
-    "format": "♪ {}",
-    // "on-click-middle": "playerctl play-pause",
-    // "on-click-right": "playerctl next",
-    // "on-click-left": "playerctl previous"
-  },
+    "interval": 60,
+    "format": "󰥔  {:%H:%M}",
+    "format-alt": "󰃭  {:%a, %d %b}",
+    "tooltip-format": "<span color='#ADB5C5'>󰃭  {:%A, %d %B %Y}</span>\n\n<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "month",
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "iso8601": true,
+      "format": {
+        "months": "<span color='#D5DAE5'><b>{}</b></span>",
+        "days": "<span color='#ADB5C5'>{}</span>",
+        "weeks": "<span color='#778093'>W{}</span>",
+        "weekdays": "<span color='#778093'><b>{}</b></span>",
+        "today": "<span color='#B7A7D8'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  }
 }

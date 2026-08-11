@@ -1,23 +1,34 @@
-{
-  "layer": "top",
-  "position": "top",
-  "exclusive": true,
-  "modules-left": [
-    "hyprland/workspaces",
-    "custom/cava"
-  ],
-  "modules-center": [
-    "hyprland/window"
-  ],
-  "modules-right": [
-    "group/expand",
-    "tray",
-    "pulseaudio#source",
-    "memory",
-    "disk",
-    "clock"
-  ],
-  "reload_style_on_change": true,
+[
+  {
+    "name": "wide",
+    "output": ["DP-2", "DP-3"],
+    "layer": "top",
+    "position": "top",
+    "height": 40,
+    "exclusive": true,
+    "fixed-center": true,
+    "spacing": 0,
+    "modules-left": ["group/context"],
+    "modules-center": ["hyprland/window#wide"],
+    "modules-right": ["group/status"],
+    "reload_style_on_change": true,
 
-  "include": "~/.config/waybar/modules.jsonc"
-}
+    "include": "~/.config/waybar/modules.jsonc"
+  },
+  {
+    "name": "portrait",
+    "output": "DP-1",
+    "layer": "top",
+    "position": "top",
+    "height": 40,
+    "exclusive": true,
+    "fixed-center": true,
+    "spacing": 0,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["hyprland/window#portrait"],
+    "modules-right": ["network", "wireplumber#sink", "clock"],
+    "reload_style_on_change": true,
+
+    "include": "~/.config/waybar/modules.jsonc"
+  }
+]

@@ -1,6 +1,7 @@
 [arch]
 packages = [
   "pavucontrol",
+  "playerctl",
   "pipewire",
   "pipewire-alsa",
   "pipewire-jack",
