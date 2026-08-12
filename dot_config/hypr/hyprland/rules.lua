@@ -75,3 +75,13 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
+
+hl.layer_rule({
+    name = "dunst",
+    match = {
+        namespace = "^notifications$",
+    },
+    blur = true,
+    ignore_alpha = 0.2,
+    animation = "fade",
+})

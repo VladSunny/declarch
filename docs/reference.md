@@ -19,6 +19,13 @@ chezmoi manages the desired state of files deployed from this source tree into t
 
 Use `chezmoi diff` and `chezmoi apply --dry-run --verbose` before applying changes. Remember that `chezmoi apply` can execute managed scripts.
 
+## Dunst
+
+Dunst provides desktop notifications, history, urgency rules, and runtime control through `dunstctl`.
+
+- [Official documentation](https://dunst-project.org/documentation/) — configuration reference, rules, history, actions, and Wayland behavior.
+- [dunstctl manual](https://dunst-project.org/documentation/dunstctl/) — runtime rule control, history, closing, and diagnostics.
+
 ## metapac
 
 metapac declaratively manages packages from multiple backends. In this repository, package groups live in `dot_config/metapac/groups/*.toml`, while backend configuration lives in `dot_config/metapac/config.toml`.

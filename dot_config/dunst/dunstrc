@@ -1,0 +1,113 @@
+[global]
+    monitor = 0
+    follow = mouse
+
+    width = (320, 420)
+    height = (0, 240)
+    origin = top-right
+    offset = (12, 12)
+    notification_limit = 5
+
+    progress_bar = true
+    progress_bar_height = 6
+    progress_bar_frame_width = 0
+    progress_bar_min_width = 150
+    progress_bar_max_width = 388
+    progress_bar_corner_radius = 3
+
+    indicate_hidden = false
+    separator_height = 0
+    padding = 12
+    horizontal_padding = 12
+    text_icon_padding = 12
+    frame_width = 1
+    gap_size = 8
+    separator_color = frame
+    sort = update
+
+    font = Inter 13
+    line_height = 4
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 60
+    ellipsize = end
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = true
+    enable_posix_regex = true
+
+    enable_recursive_icon_lookup = true
+    icon_theme = "Papirus-Dark"
+    icon_position = left
+    min_icon_size = 40
+    max_icon_size = 40
+
+    sticky_history = true
+    history_length = 50
+
+    dmenu = "rofi -dmenu -p Actions -theme ~/.config/rofi/smoky-compact.rasi"
+    browser = /usr/bin/xdg-open
+    always_run_script = true
+    corner_radius = 10
+    corners = all
+
+    layer = overlay
+    force_xwayland = false
+
+    mouse_left_click = close_current
+    mouse_middle_click = do_action
+    mouse_right_click = close_all
+
+[urgency_low]
+    background = "#171A21F2"
+    foreground = "#ADB5C5"
+    highlight = "#B7A7D8"
+    frame_color = "#778093"
+    timeout = 4s
+    fullscreen = delay
+
+[urgency_normal]
+    background = "#171A21F2"
+    foreground = "#D5DAE5"
+    highlight = "#B7A7D8"
+    frame_color = "#B7A7D8"
+    timeout = 7s
+    fullscreen = delay
+
+[urgency_critical]
+    background = "#171A21F2"
+    foreground = "#D5DAE5"
+    highlight = "#B7A7D8"
+    frame_color = "#CF7F89"
+    timeout = 0
+    fullscreen = show
+
+[do-not-disturb-low]
+    enabled = false
+    msg_urgency = low
+    skip_display = true
+
+[do-not-disturb-normal]
+    enabled = false
+    msg_urgency = normal
+    skip_display = true
+
+[do-not-disturb-confirmation]
+    appname = dunst-dnd
+    skip_display = false
+    history_ignore = true
+    set_stack_tag = dunst-dnd
+
+[do-not-disturb-enabled]
+    appname = dunst-dnd
+    summary = "Do not disturb"
+    body = "On"
+    frame_color = "#C3A36F"
+
+[do-not-disturb-disabled]
+    appname = dunst-dnd
+    summary = "Do not disturb"
+    body = "Off"
+    frame_color = "#8FAA9A"
