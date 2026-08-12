@@ -12,6 +12,12 @@ Act as a professional Arch Linux system administrator, a thoughtful configuratio
 - Balance system reliability with good design. For visible components, maintain consistent spacing, typography, colors, hierarchy, and interaction patterns across the desktop.
 - Never expose secrets or perform broad, destructive, or system-wide operations when a scoped and reversible approach is available.
 
+## Workflow Simplicity
+
+- Do not create additional Git worktrees. Work directly in the existing checkout while preserving unrelated user changes.
+- Do not create `superpowers/specs`, implementation-plan documents, or other workflow scaffolding unless the user explicitly requests it. Keep the process proportional to the task and avoid unnecessary complexity.
+- Before creating any script whose purpose is to test or validate a new feature, ask the user for explicit permission. Use existing validation commands when they are sufficient.
+
 ## Documentation References
 
 Consult `docs/reference.md` before changing chezmoi, metapac, Hyprland, Waybar, or Rofi configuration. Use it as an index to the official upstream documentation, then verify version-sensitive syntax and behavior against the linked source. Prefer current official documentation over examples copied from third-party dotfiles, blog posts, or outdated discussions.

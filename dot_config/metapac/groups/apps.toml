@@ -9,5 +9,7 @@ packages = [
   "file-roller",
   "nemo-fileroller",
 
+  "blueman",
+
   "obs-studio",
 ]
