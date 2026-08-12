@@ -13,7 +13,11 @@ hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd(prev_wallpaper))
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(screen_lock))
 hl.bind(mainMod .. " + X", hl.dsp.window.close())
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+-- hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(
+--      "if command -v hyprshutdown >/dev/null 2>&1; then hyprshutdown; else hyprctl dispatch 'hl.dsp.exit()'; fi"
+--  ))
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(screenshot .. " area"))
+hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd(screenshot .. " monitor"))
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd(fileManagerGUI))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManagerTUI))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(bar))

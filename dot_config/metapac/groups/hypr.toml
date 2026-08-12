@@ -1,15 +1,17 @@
 [arch]
 packages = [
+  "grim",
   "hypridle",
   "hyprland",
   "hyprlock",
+  "hyprshutdown",
   "qt5-wayland",
   "qt6-wayland",
   "xdg-desktop-portal-hyprland",
   "xorg-xwayland",
   "dunst",
   "rofi",
+  "slurp",
   "waybar",
   "awww",
 ]
-

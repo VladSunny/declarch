@@ -6,7 +6,7 @@ packages = [
   "btop",
   "starship",
   "eza",
+  "jq",
   "cava",
   "vitetris",
 ]
-

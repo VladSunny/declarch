@@ -27,3 +27,4 @@ alias ll="exa -la --icons"
 # alias cat="bat"
 alias ff="fastfetch"
 alias up="paru -Syu && metapac sync"
+alias turnoff="hyprshutdown && poweroff"t
