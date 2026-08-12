@@ -5,6 +5,8 @@ packages = [
   "fastfetch",
   "btop",
   "starship",
-  "exa",
-  "cava"
+  "eza",
+  "cava",
+  "vitetris",
 ]
+

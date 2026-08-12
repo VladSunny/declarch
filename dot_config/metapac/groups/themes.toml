@@ -3,6 +3,7 @@ packages = [
   "arc-gtk-theme",
   "nwg-look",
   "papirus-icon-theme",
-#   "tokyonight-gtk-theme-git",
-#   "nordic-theme"
+  "adw-gtk-theme",
+  #   "tokyonight-gtk-theme-git",
+  #   "nordic-theme"
 ]

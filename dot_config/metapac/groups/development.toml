@@ -8,7 +8,7 @@ packages = [
   # Editors
   "nano",
   "vim",
-  "nvim",
+  "neovim",
   "visual-studio-code-bin",
 
   # Python
@@ -31,4 +31,11 @@ packages = [
 ]
 
 [mise]
-packages = [{name = "node", options = { version = "lts" }}]
+packages = [{ name = "node", options = { version = "lts" } }]
+
+[npm]
+packages = [
+  "@openai/codex",
+  "corepack",
+  "npm",
+]
