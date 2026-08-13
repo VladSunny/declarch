@@ -179,7 +179,7 @@
     "tooltip-format-no-controller": "󰂲  unavailable",
     "tooltip-format-enumerate-connected": "󰂱  {device_alias}",
     "tooltip-format-enumerate-connected-battery": "󰂱  {device_alias}  󰁹 {device_battery_percentage}%",
-    "on-click": "kitty --class bluetoothctl -e bluetoothctl"
+    "on-click": "blueman-manager"
   },
   "wireplumber#sink": {
     "format": "{icon}",
