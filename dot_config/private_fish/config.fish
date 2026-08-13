@@ -22,6 +22,9 @@ if type -q mise
     mise activate fish | source
 end
 
+set -gx EDITOR nvim
+set -gx VISUAL nvim
+
 alias ls="exa --icons"
 alias ll="exa -la --icons"
 # alias cat="bat"
