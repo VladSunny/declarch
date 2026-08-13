@@ -21,4 +21,7 @@ package_manager = "paru"
     "network",
     "printing",
     "themes"
+{{ range .optional_metapac_groups -}}
+    {{ printf "%q" . }},
+{{ end -}}
 ]

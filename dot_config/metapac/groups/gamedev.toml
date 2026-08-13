@@ -1,0 +1,8 @@
+[arch]
+packages = [
+    "unityhub",
+    "dotnet-runtime",
+    "dotnet-sdk",
+    "mono",
+    "mono-msbuild"
+]
