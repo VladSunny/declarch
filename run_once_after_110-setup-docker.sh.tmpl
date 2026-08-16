@@ -1,0 +1,106 @@
+{{- if eq .chezmoi.hostname "declarch-pc" -}}
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+DAEMON_CONFIG="/etc/docker/daemon.json"
+DAEMON_CONFIG_CHANGED=false
+DAEMON_CONFIG_TMP=""
+CURRENT_USER="$(id -un)"
+
+cleanup() {
+    if [[ -n "$DAEMON_CONFIG_TMP" && -f "$DAEMON_CONFIG_TMP" ]]; then
+        rm -f -- "$DAEMON_CONFIG_TMP"
+    fi
+}
+
+fail() {
+    echo "Docker setup failed: $*" >&2
+    exit 1
+}
+
+require_command() {
+    local command_name="$1"
+
+    command -v "$command_name" >/dev/null 2>&1 || fail "required command '$command_name' is unavailable after metapac sync."
+}
+
+trap cleanup EXIT
+
+if (( EUID == 0 )); then
+    fail "run chezmoi as a regular user, not root."
+fi
+
+echo "Synchronizing the metapac profile..."
+metapac sync --no-confirm
+
+require_command docker
+require_command dockerd
+require_command jq
+require_command systemctl
+
+getent group docker >/dev/null || fail "the docker system group does not exist."
+if id -nG "$CURRENT_USER" | tr ' ' '\n' | grep -Fxq docker; then
+    echo "$CURRENT_USER is already a member of the docker group."
+else
+    echo "Adding $CURRENT_USER to the docker group..."
+    sudo usermod -aG docker "$CURRENT_USER"
+fi
+
+sudo install -d -m 0755 /etc/docker
+DAEMON_CONFIG_TMP="$(mktemp)"
+
+if sudo test -f "$DAEMON_CONFIG"; then
+    sudo jq '.["log-driver"] = "local"' "$DAEMON_CONFIG" > "$DAEMON_CONFIG_TMP"
+else
+    jq -n '{"log-driver": "local"}' > "$DAEMON_CONFIG_TMP"
+fi
+
+if sudo test -f "$DAEMON_CONFIG" && sudo cmp -s "$DAEMON_CONFIG_TMP" "$DAEMON_CONFIG"; then
+    echo "Docker already uses the local logging driver."
+else
+    echo "Configuring Docker to use the local logging driver..."
+    sudo install -m 0644 "$DAEMON_CONFIG_TMP" "$DAEMON_CONFIG"
+    DAEMON_CONFIG_CHANGED=true
+fi
+
+if command -v nvidia-ctk >/dev/null 2>&1; then
+    if sudo jq -e '.runtimes.nvidia' "$DAEMON_CONFIG" >/dev/null; then
+        echo "The NVIDIA Docker runtime is already configured."
+    else
+        echo "Registering the NVIDIA Docker runtime..."
+        sudo nvidia-ctk runtime configure --runtime=docker
+        DAEMON_CONFIG_CHANGED=true
+    fi
+else
+    echo "nvidia-ctk is unavailable; skipping NVIDIA runtime configuration."
+fi
+
+echo "Validating the Docker daemon configuration..."
+sudo dockerd --validate --config-file="$DAEMON_CONFIG"
+
+sudo systemctl enable docker.service
+if systemctl is-active --quiet docker.service; then
+    if [[ "$DAEMON_CONFIG_CHANGED" == true ]]; then
+        sudo systemctl restart docker.service
+    fi
+else
+    sudo systemctl start docker.service
+fi
+
+systemctl is-enabled --quiet docker.service || fail "docker.service is not enabled."
+systemctl is-active --quiet docker.service || fail "docker.service is not active."
+
+LOGGING_DRIVER="$(sudo docker info --format '{{ "{{" }}.LoggingDriver{{ "}}" }}')"
+[[ "$LOGGING_DRIVER" == "local" ]] || fail "Docker reports logging driver '$LOGGING_DRIVER' instead of 'local'."
+
+if command -v nvidia-ctk >/dev/null 2>&1; then
+    RUNTIMES_JSON="$(sudo docker info --format '{{ "{{" }}json .Runtimes{{ "}}" }}')"
+    jq -e 'has("nvidia")' <<< "$RUNTIMES_JSON" >/dev/null || fail "Docker does not report the NVIDIA runtime."
+fi
+
+echo "Docker setup completed successfully."
+if ! id -nG | tr ' ' '\n' | grep -Fxq docker; then
+    echo "Log out and back in before using Docker without sudo."
+fi
+{{- end }}

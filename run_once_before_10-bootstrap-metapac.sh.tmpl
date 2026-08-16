@@ -1,0 +1,53 @@
+{{- if and (eq .chezmoi.hostname "declarch-pc") (eq .chezmoi.osRelease.id "arch") -}}
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+TEMP_DIR=""
+
+cleanup() {
+    if [[ -n "$TEMP_DIR" && -d "$TEMP_DIR" ]]; then
+        rm -rf -- "$TEMP_DIR"
+    fi
+}
+
+on_exit() {
+    local status=$?
+
+    cleanup
+    if (( status != 0 )); then
+        echo "Metapac bootstrap failed. Fix the error above and run chezmoi apply again." >&2
+    fi
+    exit "$status"
+}
+
+trap on_exit EXIT
+
+if (( EUID == 0 )); then
+    echo "Metapac bootstrap must run as a regular user, not root." >&2
+    exit 1
+fi
+
+if ! command -v paru >/dev/null 2>&1; then
+    echo "Installing paru bootstrap dependencies..."
+    sudo pacman -S --needed --noconfirm base-devel git
+
+    TEMP_DIR="$(mktemp -d)"
+    git clone https://aur.archlinux.org/paru.git "$TEMP_DIR/paru"
+
+    echo "Building and installing paru from the official AUR Git repository..."
+    (
+        cd "$TEMP_DIR/paru"
+        makepkg -si --needed --noconfirm
+    )
+else
+    echo "paru is already installed; skipping bootstrap."
+fi
+
+if ! command -v metapac >/dev/null 2>&1; then
+    echo "Installing metapac with paru..."
+    paru -S --needed --noconfirm metapac
+else
+    echo "metapac is already installed; skipping bootstrap."
+fi
+{{- end }}

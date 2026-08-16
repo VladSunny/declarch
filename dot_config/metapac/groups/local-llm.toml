@@ -1,0 +1,4 @@
+[arch]
+packages = [
+    "ollama-cuda",
+]

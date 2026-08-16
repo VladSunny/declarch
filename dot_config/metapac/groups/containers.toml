@@ -1,0 +1,7 @@
+[arch]
+packages = [
+  "docker",
+  "docker-buildx",
+  "docker-compose",
+  "lazydocker"
+]
