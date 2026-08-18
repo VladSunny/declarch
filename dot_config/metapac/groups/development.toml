@@ -27,6 +27,7 @@ packages = [
 
   # Rust
   "rustup",
+  "rust-analyzer"
 ]
 
 [mise]
