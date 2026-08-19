@@ -2,7 +2,9 @@
 packages = [
   "chezmoi",
   "metapac",
+  "usbutils",
   "wl-clipboard",
+  "xdg-user-dirs",
   "xdg-utils",
   "zram-generator",
   "polkit-kde-agent",

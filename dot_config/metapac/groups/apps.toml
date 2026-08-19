@@ -13,5 +13,7 @@ packages = [
 
   "obsidian",
 
+  "libreoffice-still",
+
   "obs-studio",
 ]

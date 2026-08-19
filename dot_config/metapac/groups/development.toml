@@ -35,7 +35,7 @@ packages = [{ name = "node", options = { version = "lts" } }]
 
 [npm]
 packages = [
-  # "@openai/codex",
+  "@openai/codex",
   "corepack",
   "npm",
 ]

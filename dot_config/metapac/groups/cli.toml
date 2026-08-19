@@ -1,5 +1,6 @@
 [arch]
 packages = [
+  "7zip",
   "kitty",
   "bat",
   "fastfetch",
@@ -8,5 +9,8 @@ packages = [
   "eza",
   "jq",
   "cava",
+  "ripgrep",
+  "unzip",
   "vitetris",
+  "zip",
 ]
