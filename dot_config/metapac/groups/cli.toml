@@ -13,4 +13,5 @@ packages = [
   "unzip",
   "vitetris",
   "zip",
+  "yandex-disk"
 ]
