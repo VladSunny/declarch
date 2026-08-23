@@ -1,0 +1,10 @@
+[arch]
+packages = [
+  "acpi",
+  "brightnessctl",
+  "fwupd",
+  "power-profiles-daemon",
+  "powertop",
+  "thermald",
+  "upower",
+]
