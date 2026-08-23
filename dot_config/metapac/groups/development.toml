@@ -2,6 +2,7 @@
 packages = [
   # Utils
   "git",
+  "git-lfs",
   "lazygit",
 
   # Editors
@@ -27,15 +28,11 @@ packages = [
 
   # Rust
   "rustup",
-  "rust-analyzer"
+  "rust-analyzer",
 ]
 
 [mise]
 packages = [{ name = "node", options = { version = "lts" } }]
 
 [npm]
-packages = [
-  "@openai/codex",
-  "corepack",
-  "npm",
-]
+packages = ["@openai/codex", "corepack", "npm"]

@@ -9,8 +9,6 @@ packages = [
   "file-roller",
   "nemo-fileroller",
 
-  "tabby-bin",
-
   "blueman",
 
   "obsidian",
