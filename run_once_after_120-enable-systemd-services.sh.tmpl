@@ -1,0 +1,49 @@
+{{- if and (or (eq .chezmoi.hostname "declarch-pc") (eq .chezmoi.hostname "declarch-laptop")) (eq .chezmoi.osRelease.id "arch") -}}
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+SYSTEM_UNITS=(
+    systemd-timesyncd.service
+    NetworkManager.service
+    bluetooth.service
+    cups.service
+    fstrim.timer
+{{- if eq .chezmoi.hostname "declarch-laptop" }}
+    power-profiles-daemon.service
+    thermald.service
+{{- end }}
+)
+
+fail() {
+    echo "Systemd service setup failed: $*" >&2
+    exit 1
+}
+
+require_command() {
+    local command_name="$1"
+
+    command -v "$command_name" >/dev/null 2>&1 || fail "required command '$command_name' is unavailable."
+}
+
+if (( EUID == 0 )); then
+    fail "run chezmoi as a regular user, not root."
+fi
+
+require_command metapac
+require_command systemctl
+require_command sudo
+
+echo "Synchronizing the metapac profile..."
+metapac sync --no-confirm
+
+echo "Enabling and starting system services..."
+sudo systemctl enable --now "${SYSTEM_UNITS[@]}"
+
+for unit in "${SYSTEM_UNITS[@]}"; do
+    systemctl is-enabled --quiet "$unit" || fail "$unit is not enabled."
+    systemctl is-active --quiet "$unit" || fail "$unit is not active."
+done
+
+echo "Systemd service setup completed successfully."
+{{- end }}

@@ -1,4 +1,4 @@
-{{- if and (eq .chezmoi.hostname "declarch-pc") (eq .chezmoi.osRelease.id "arch") -}}
+{{- if and (or (eq .chezmoi.hostname "declarch-pc") (eq .chezmoi.hostname "declarch-laptop")) (eq .chezmoi.osRelease.id "arch") -}}
 #!/usr/bin/env bash
 
 set -euo pipefail
