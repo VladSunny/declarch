@@ -59,12 +59,17 @@ the model is offloading to the CPU.
 
 ## Configure Open WebUI
 
-The Open WebUI container publishes its internal port `8080` on host port
-`3001` and maps `host.docker.internal` to Docker's host gateway. For a new
-container, include:
+Chezmoi manages the container definition in
+`~/.config/open-webui/compose.yaml`. The container runs without authentication,
+publishes its internal port `8080` on host loopback port `3001`, and maps
+`host.docker.internal` to Docker's host gateway. Binding to `127.0.0.1` keeps
+the unauthenticated interface inaccessible from the LAN.
+
+The equivalent Docker options are:
 
 ```text
---publish=3001:8080
+--env=WEBUI_AUTH=false
+--publish=127.0.0.1:3001:8080
 --add-host=host.docker.internal:host-gateway
 ```
 
@@ -82,8 +87,21 @@ http://host.docker.internal:11434
 ```
 
 Open WebUI is available at <http://localhost:3001>. In fish, run `openwebui`
-to start the container, wait for its health check, and open the page in the
-default browser.
+to create or start the container from the managed Compose configuration, wait
+for its health check, and open the page in the default browser.
+
+## Connect through SSH
+
+Keep port `3001` bound to loopback and forward it over SSH instead of exposing
+the unauthenticated interface on the network. On the connecting device, run:
+
+```bash
+ssh -N -L 3001:127.0.0.1:3001 <user>@<workstation>
+```
+
+While the SSH session is open, use <http://localhost:3001> on that device. If
+its local port `3001` is already occupied, choose another local port, for
+example `-L 13001:127.0.0.1:3001`, and open <http://localhost:13001>.
 
 ## Troubleshooting
 

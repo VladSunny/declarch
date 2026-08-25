@@ -4,9 +4,10 @@ end
 
 function openwebui
     set -l container open-webui
+    set -l compose_file "$HOME/.config/open-webui/compose.yaml"
     set -l url http://localhost:3001
 
-    if not docker start $container >/dev/null
+    if not docker compose --file $compose_file up --detach >/dev/null
         echo "Failed to start $container." >&2
         return 1
     end
