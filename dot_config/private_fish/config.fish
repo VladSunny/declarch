@@ -4,7 +4,7 @@ end
 
 function openwebui
     set -l container open-webui
-    set -l url http://localhost:3000
+    set -l url http://localhost:3001
 
     if not docker start $container >/dev/null
         echo "Failed to start $container." >&2

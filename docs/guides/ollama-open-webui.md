@@ -39,12 +39,32 @@ Binding to `0.0.0.0` exposes the Ollama API on every host network interface.
 Use a firewall to limit port `11434` to trusted networks, or block external
 access entirely when only local Docker containers need it.
 
+## Global context length
+
+On `declarch-pc`, chezmoi manages
+`/etc/systemd/system/ollama.service.d/20-context-length.conf` through
+`run_onchange_after_115-configure-ollama-context.sh.tmpl`. It sets the Ollama
+server's default context length to 64K tokens:
+
+```ini
+[Service]
+Environment="OLLAMA_CONTEXT_LENGTH=65536"
+```
+
+The script reloads systemd and restarts Ollama when this drop-in changes. A
+request-level `num_ctx` option or a model-specific `PARAMETER num_ctx` can
+still override the server default. Larger contexts consume more VRAM; use
+`ollama ps` while a model is loaded to check the allocated context and whether
+the model is offloading to the CPU.
+
 ## Configure Open WebUI
 
-The Open WebUI container must map `host.docker.internal` to Docker's host
-gateway. For a new container, include:
+The Open WebUI container publishes its internal port `8080` on host port
+`3001` and maps `host.docker.internal` to Docker's host gateway. For a new
+container, include:
 
 ```text
+--publish=3001:8080
 --add-host=host.docker.internal:host-gateway
 ```
 
@@ -61,7 +81,7 @@ set the connection URL to:
 http://host.docker.internal:11434
 ```
 
-Open WebUI is available at <http://localhost:3000>. In fish, run `openwebui`
+Open WebUI is available at <http://localhost:3001>. In fish, run `openwebui`
 to start the container, wait for its health check, and open the page in the
 default browser.
 

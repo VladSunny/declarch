@@ -1,0 +1,60 @@
+{{- if and (eq .chezmoi.hostname "declarch-pc") (eq .chezmoi.osRelease.id "arch") -}}
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+DROP_IN_DIR="/etc/systemd/system/ollama.service.d"
+DROP_IN_FILE="$DROP_IN_DIR/20-context-length.conf"
+DROP_IN_TMP=""
+
+cleanup() {
+    if [[ -n "$DROP_IN_TMP" && -f "$DROP_IN_TMP" ]]; then
+        rm -f -- "$DROP_IN_TMP"
+    fi
+}
+
+fail() {
+    echo "Ollama context configuration failed: $*" >&2
+    exit 1
+}
+
+require_command() {
+    local command_name="$1"
+
+    command -v "$command_name" >/dev/null 2>&1 || fail "required command '$command_name' is unavailable."
+}
+
+trap cleanup EXIT
+
+if (( EUID == 0 )); then
+    fail "run chezmoi as a regular user, not root."
+fi
+
+require_command ollama
+require_command systemctl
+require_command sudo
+
+DROP_IN_TMP="$(mktemp)"
+printf '%s\n' \
+    '[Service]' \
+    'Environment="OLLAMA_CONTEXT_LENGTH=65536"' > "$DROP_IN_TMP"
+
+sudo install -d -m 0755 "$DROP_IN_DIR"
+
+if sudo test -f "$DROP_IN_FILE" && sudo cmp -s "$DROP_IN_TMP" "$DROP_IN_FILE"; then
+    echo "Ollama already uses a 64K default context length."
+    exit 0
+fi
+
+echo "Configuring Ollama to use a 64K default context length..."
+sudo install -m 0644 "$DROP_IN_TMP" "$DROP_IN_FILE"
+sudo systemctl daemon-reload
+sudo systemctl try-restart ollama.service
+
+systemctl show ollama.service --property=Environment --value --no-pager \
+    | tr ' ' '\n' \
+    | grep -Fxq 'OLLAMA_CONTEXT_LENGTH=65536' \
+    || fail "ollama.service does not report OLLAMA_CONTEXT_LENGTH=65536."
+
+echo "Ollama context configuration completed successfully."
+{{- end }}
