@@ -5,6 +5,7 @@ packages = [
     "lutris",
     "wine-staging",
     "winetricks",
+    "prismlauncher",
     # "gamemode",
     # "lib32-gamemode",
     # "mangohud",
