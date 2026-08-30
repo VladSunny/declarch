@@ -6,6 +6,7 @@ packages = [
   "pipewire-alsa",
   "pipewire-jack",
   "pipewire-pulse",
+  "rtkit",
   "gst-plugin-pipewire",
   "wireplumber",
   "libpulse",
