@@ -32,6 +32,7 @@
     "modules": [
       "network",
       "bluetooth",
+      "hyprland/language",
       "wireplumber#sink"
     ]
   },
@@ -180,6 +181,12 @@
     "tooltip-format-enumerate-connected": "󰂱  {device_alias}",
     "tooltip-format-enumerate-connected-battery": "󰂱  {device_alias}  󰁹 {device_battery_percentage}%",
     "on-click": "blueman-manager"
+  },
+  "hyprland/language": {
+    "format": "󰌌  {}",
+    "format-en": "EN",
+    "format-ru": "RU",
+    "tooltip-format": "{long}"
   },
   "wireplumber#sink": {
     "format": "{icon}",

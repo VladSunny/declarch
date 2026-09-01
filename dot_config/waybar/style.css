@@ -78,6 +78,7 @@ menu menuitem:hover {
 #disk,
 #network,
 #bluetooth,
+#language,
 #wireplumber,
 #privacy,
 #tray,
@@ -98,6 +99,7 @@ menu menuitem:hover {
 #disk:hover,
 #network:hover,
 #bluetooth:hover,
+#language:hover,
 #wireplumber:hover,
 #tray:hover,
 #clock:hover {
@@ -214,6 +216,7 @@ window#waybar.portrait #window {
 }
 
 window#waybar.portrait #network,
+window#waybar.portrait #language,
 window#waybar.portrait #wireplumber,
 window#waybar.portrait #clock {
     padding: 0 8px;
