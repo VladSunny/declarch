@@ -6,6 +6,7 @@ packages = [
     "wine-staging",
     "winetricks",
     "prismlauncher",
+    "discord",
     # "gamemode",
     # "lib32-gamemode",
     # "mangohud",
