@@ -16,4 +16,9 @@ packages = [
   "libreoffice-still",
 
   "obs-studio",
+  
+  "fuse",
+
+  "vlc",
+  "vlc-plugins-all"
 ]
