@@ -35,8 +35,62 @@ function openwebui
 end
 
 if status is-interactive
-    starship init fish | source
-    
+    # Tide Classic prompt: keep context local to SSH/root shells.
+    set --global tide_left_prompt_frame_enabled true
+    set --global tide_left_prompt_items context pwd git newline character
+    set --global tide_left_prompt_prefix ''
+    set --global tide_left_prompt_separator_diff_color ' '
+    set --global tide_left_prompt_separator_same_color ' '
+    set --global tide_left_prompt_suffix ''
+    set --global tide_right_prompt_frame_enabled false
+    set --global tide_right_prompt_items cmd_duration status node python rustc go java php terraform docker
+    set --global tide_right_prompt_prefix ''
+    set --global tide_right_prompt_separator_diff_color ' '
+    set --global tide_right_prompt_separator_same_color ' '
+    set --global tide_right_prompt_suffix ''
+
+    set --global tide_prompt_add_newline_before false
+    set --global tide_prompt_color_frame_and_connection 778093
+    set --global tide_prompt_color_separator_same_color 778093
+    set --global tide_prompt_icon_connection '─'
+    set --global tide_prompt_pad_items false
+
+    set --global tide_context_color_default A6ADBB
+    set --global tide_context_color_root A6ADBB
+    set --global tide_context_color_ssh A6ADBB
+
+    set --global tide_pwd_color_anchors B7A7D8
+    set --global tide_pwd_color_dirs B7A7D8
+    set --global tide_pwd_color_truncated_dirs 9B8DBD
+
+    set --global tide_git_color_branch 8FAA9A
+    set --global tide_git_color_dirty C3A36F
+    set --global tide_git_color_staged C3A36F
+    set --global tide_git_color_untracked C3A36F
+    set --global tide_git_color_conflicted CF7F89
+    set --global tide_git_color_operation CF7F89
+    set --global tide_git_color_upstream 8FAA9A
+
+    set --global tide_character_color 8FAA9A
+    set --global tide_character_color_failure CF7F89
+    set --global tide_character_icon '➜'
+    set --global tide_character_vi_icon_default '➜'
+    set --global tide_character_vi_icon_replace '➜'
+    set --global tide_character_vi_icon_visual '➜'
+
+    set --global tide_cmd_duration_color C3A36F
+    set --global tide_cmd_duration_threshold 2000
+    set --global tide_status_color_failure CF7F89
+
+    set --global tide_node_color 8FAA9A
+    set --global tide_python_color 8FAA9A
+    set --global tide_rustc_color 8FAA9A
+    set --global tide_go_color 8FAA9A
+    set --global tide_java_color 8FAA9A
+    set --global tide_php_color 8FAA9A
+    set --global tide_terraform_color 8FAA9A
+    set --global tide_docker_color 8FAA9A
+
     if test -z (pgrep ssh-agent)
         eval (ssh-agent -c)
         set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
