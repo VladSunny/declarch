@@ -1,5 +1,5 @@
 [arch]
 packages = [
-    "ollama-cuda",
+    # "ollama-cuda",
     "opencode",
 ]
