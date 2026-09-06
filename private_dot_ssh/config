@@ -12,3 +12,16 @@ Host raspberry
     ExitOnForwardFailure yes
     ServerAliveInterval 30
     ServerAliveCountMax 3
+
+
+Host vladpn-hiplet
+    HostName 45.12.70.175
+    Port 22
+    User root
+
+    IdentityFile ~/.ssh/id_ed25519
+    IdentitiesOnly yes
+
+    ExitOnForwardFailure yes
+    ServerAliveInterval 30
+    ServerAliveCountMax 3
