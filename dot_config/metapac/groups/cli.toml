@@ -13,5 +13,6 @@ packages = [
   "unzip",
   "vitetris",
   "zip",
-  "yandex-disk"
+  "yandex-disk",
+  "fortune-mod",
 ]

@@ -6,5 +6,5 @@ packages = [
   "bluez-utils",
   "sing-box",
   "xray-bin",
-  "v2rayn-bin"
+  # "v2rayn-bin"
 ]
