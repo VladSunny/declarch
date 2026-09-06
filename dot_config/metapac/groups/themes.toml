@@ -1,6 +1,6 @@
 [arch]
 packages = [
-  "arc-gtk-theme",
+  # "arc-gtk-theme",
   "nwg-look",
   "papirus-icon-theme",
   "adw-gtk-theme",

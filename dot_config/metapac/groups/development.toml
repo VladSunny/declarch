@@ -25,14 +25,15 @@ packages = [
 
   # Node js
   "mise",
+  "nodejs-lts-jod",
+  "npm",
 
   # Rust
   "rustup",
   "rust-analyzer",
 ]
 
-[mise]
-packages = [{ name = "node", options = { version = "lts" } }]
-
 [npm]
-packages = ["@openai/codex", "corepack", "npm"]
+packages = [
+  "@openai/codex",
+]

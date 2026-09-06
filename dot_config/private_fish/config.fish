@@ -46,9 +46,7 @@ if status is-interactive
     ssh-add ~/.ssh/id_ed25519 2>/dev/null 
 end
 
-if status is-login
-    fish_add_path ~/.local/bin
-end
+fish_add_path ~/.local/bin
 
 if type -q mise
     mise activate fish | source
@@ -62,4 +60,5 @@ alias ll="exa -la --icons"
 # alias cat="bat"
 alias ff="fastfetch"
 alias up="paru -Syu && metapac sync"
-alias turnoff="hyprshutdown && poweroff"t
+alias turnoff="hyprshutdown && poweroff"
+alias v2ray="~/ExternalTools/v2rayN-linux-64/v2rayN"

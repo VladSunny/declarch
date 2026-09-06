@@ -10,6 +10,7 @@ packages = [
   "grub",
   "efibootmgr",
   "mkinitcpio",
+  "openssh",
   "wget",
 
   "paru",

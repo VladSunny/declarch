@@ -41,7 +41,8 @@ access entirely when only local Docker containers need it.
 
 ## Global context length
 
-On `declarch-pc`, chezmoi manages
+On `declarch-pc`, when the `local-llm` optional metapac group is enabled,
+chezmoi manages
 `/etc/systemd/system/ollama.service.d/20-context-length.conf` through
 `run_onchange_after_115-configure-ollama-context.sh.tmpl`. It sets the Ollama
 server's default context length to 64K tokens:

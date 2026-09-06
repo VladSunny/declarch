@@ -31,9 +31,6 @@ if (( EUID == 0 )); then
     fail "run chezmoi as a regular user, not root."
 fi
 
-echo "Synchronizing the metapac profile..."
-metapac sync --no-confirm
-
 require_command docker
 require_command dockerd
 require_command jq

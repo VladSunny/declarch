@@ -1,4 +1,4 @@
-{{- if and (eq .chezmoi.hostname "declarch-pc") (eq .chezmoi.osRelease.id "arch") -}}
+{{- if and (eq .chezmoi.hostname "declarch-pc") (eq .chezmoi.osRelease.id "arch") (has "local-llm" .optional_metapac_groups) -}}
 #!/usr/bin/env bash
 
 set -euo pipefail

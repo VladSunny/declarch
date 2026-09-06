@@ -34,9 +34,6 @@ require_command metapac
 require_command systemctl
 require_command sudo
 
-echo "Synchronizing the metapac profile..."
-metapac sync --no-confirm
-
 echo "Enabling and starting system services..."
 sudo systemctl enable --now "${SYSTEM_UNITS[@]}"
 

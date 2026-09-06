@@ -30,7 +30,7 @@ fi
 
 if ! command -v paru >/dev/null 2>&1; then
     echo "Installing paru bootstrap dependencies..."
-    sudo pacman -S --needed --noconfirm base-devel git
+    sudo pacman -S --needed --noconfirm base-devel git openssh nodejs-lts-jod npm
 
     TEMP_DIR="$(mktemp -d)"
     git clone https://aur.archlinux.org/paru.git "$TEMP_DIR/paru"
@@ -43,6 +43,9 @@ if ! command -v paru >/dev/null 2>&1; then
 else
     echo "paru is already installed; skipping bootstrap."
 fi
+
+echo "Ensuring first-apply package manager prerequisites..."
+sudo pacman -S --needed --noconfirm openssh nodejs-lts-jod npm
 
 if ! command -v metapac >/dev/null 2>&1; then
     echo "Installing metapac with paru..."
