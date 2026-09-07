@@ -21,7 +21,9 @@
     "orientation": "horizontal",
     "modules": [
       "cpu",
+      {{ if eq .chezmoi.hostname "declarch" }}
       "custom/gpu",
+      {{ end }}
       "memory",
       "temperature",
       "disk"
@@ -48,6 +50,13 @@
     "format": "󰖯  {title}",
     "icon": false,
     "max-length": 28,
+    "separate-outputs": true,
+    "tooltip": false
+  },
+  "hyprland/window#laptop": {
+    "format": "󰖯  {title}",
+    "icon": false,
+    "max-length": 40,
     "separate-outputs": true,
     "tooltip": false
   },

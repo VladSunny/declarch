@@ -4,6 +4,8 @@
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 
+{{ if eq .chezmoi.hostname "declarch" }}
+
 hl.monitor({
     output   = "DP-3",
     mode     = "preferred",
@@ -41,3 +43,19 @@ hl.workspace_rule({
     monitor   = "DP-3",
     default   = true
 })
+
+{{ else }}
+
+hl.monitor({
+    output   = "eDP-1",
+    mode     = "preferred",
+    scale    = 1,
+})
+
+hl.workspace_rule({
+    workspace = "1",
+    monitor   = "eDP-1",
+    default   = true
+})
+
+{{ end }}

@@ -1,3 +1,4 @@
+{{- if eq .chezmoi.hostname "declarch" -}}
 [
   {
     "name": "wide",
@@ -32,3 +33,23 @@
     "include": "~/.config/waybar/modules.jsonc"
   }
 ]
+{{- else -}}
+[
+  {
+    "name": "laptop",
+    "output": "eDP-1",
+    "layer": "top",
+    "position": "top",
+    "height": 40,
+    "exclusive": true,
+    "fixed-center": true,
+    "spacing": 0,
+    "modules-left": ["group/context"],
+    "modules-center": ["hyprland/window#laptop"],
+    "modules-right": ["group/status"],
+    "reload_style_on_change": true,
+
+    "include": "~/.config/waybar/modules.jsonc"
+  }
+]
+{{- end }}
