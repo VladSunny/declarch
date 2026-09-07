@@ -21,7 +21,7 @@
     "orientation": "horizontal",
     "modules": [
       "cpu",
-      {{ if eq .chezmoi.hostname "declarch" }}
+      {{ if eq .chezmoi.hostname "declarch-pc" }}
       "custom/gpu",
       {{ end }}
       "memory",
