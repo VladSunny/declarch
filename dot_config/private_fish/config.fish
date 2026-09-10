@@ -6,6 +6,7 @@ function fish_greeting
             set -l lines
 
             for paragraph in (string split \n -- "$quote")
+                set paragraph (string replace --all \t ' ' -- "$paragraph")
                 set -l line ''
 
                 for word in (string split ' ' -- $paragraph)
