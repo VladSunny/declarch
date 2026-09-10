@@ -1,5 +1,67 @@
 function fish_greeting
-    fastfetch --logo arch_small --structure title:packages:kernel:uptime:battery:memory:gpu:cpu
+    if type -q fortune
+        set -l quote (fortune -s | string collect)
+
+        if test -n "$quote"
+            set -l lines
+
+            for paragraph in (string split \n -- "$quote")
+                set -l line ''
+
+                for word in (string split ' ' -- $paragraph)
+                    if test -z "$word"
+                        continue
+                    end
+
+                    if test (string length -- "$word") -gt 56
+                        if test -n "$line"
+                            set --append lines "$line"
+                            set line ''
+                        end
+
+                        while test (string length -- "$word") -gt 56
+                            set --append lines (string sub --length 56 -- "$word")
+                            set word (string sub --start 57 -- "$word")
+                        end
+                    end
+
+                    if test -z "$line"
+                        set line "$word"
+                    else if test (string length -- "$line $word") -le 56
+                        set line "$line $word"
+                    else
+                        set --append lines "$line"
+                        set line "$word"
+                    end
+                end
+
+                if test -n "$line"
+                    set --append lines "$line"
+                end
+            end
+
+            set -l width 0
+            for line in $lines
+                set -l line_width (string length -- "$line")
+                if test $line_width -gt $width
+                    set width $line_width
+                end
+            end
+
+            set_color B7A7D8
+            echo "╭─"(string repeat -n $width '─')"─╮"
+            set_color ADB5C5
+            for line in $lines
+                set -l padding (string repeat -n (math $width - (string length -- "$line")) ' ')
+                echo "│ $line$padding │"
+            end
+            set_color B7A7D8
+            echo "╰─"(string repeat -n $width '─')"─╯"
+            set_color normal
+        end
+    end
+
+    fastfetch
 end
 
 function openwebui
