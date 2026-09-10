@@ -17,7 +17,7 @@ packages = [
 
   "obs-studio",
   
-  "fuse",
+  "fuse2",
 
   "vlc",
   "vlc-plugins-all"

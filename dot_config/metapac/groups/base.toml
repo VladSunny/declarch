@@ -18,4 +18,6 @@ packages = [
 
   "fish",
   "fisher",
+
+  "downgrade"
 ]
