@@ -74,6 +74,7 @@ menu menuitem:hover {
 #cpu,
 #custom-gpu,
 #battery,
+#custom-lid-sleep,
 #memory,
 #temperature,
 #disk,
@@ -96,6 +97,7 @@ menu menuitem:hover {
 #cpu:hover,
 #custom-gpu:hover,
 #battery:hover,
+#custom-lid-sleep:hover,
 #memory:hover,
 #temperature:hover,
 #disk:hover,
@@ -147,6 +149,14 @@ menu menuitem:hover {
 #battery.plugged,
 #battery.full {
     color: @sage;
+}
+
+#custom-lid-sleep.sleep {
+    color: @sage;
+}
+
+#custom-lid-sleep.no-sleep {
+    color: @amber;
 }
 
 /* Hardware stays neutral until a threshold needs attention. */

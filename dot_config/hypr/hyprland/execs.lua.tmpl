@@ -4,6 +4,13 @@
 
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 
+{{ if eq .chezmoi.hostname "declarch-laptop" }}
+local function start_lid_sleep_services()
+    hl.exec_cmd("pgrep -x hypridle >/dev/null || hypridle")
+    hl.exec_cmd("~/.config/waybar/scripts/lid-sleep.sh inhibit-logind")
+end
+
+{{ end }}
 hl.on("hyprland.start", function () 
     hl.exec_cmd("awww-daemon --format xrgb")
     hl.exec_cmd("awww img ~/Pictures/Wallpapers/Vagabond.jpeg --transition-type random --transition-step 255 --transition-fps 90 --transition-bezier .43,.43,.12,.88")
@@ -11,6 +18,13 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark")
     hl.exec_cmd("nwg-look -a")
     hl.exec_cmd("blueman-applet")
+{{ if eq .chezmoi.hostname "declarch-laptop" }}
+    start_lid_sleep_services()
+{{ end }}
     hl.exec_cmd(dnd .. " init")
     hl.exec_cmd(bar)
 end)
+
+{{ if eq .chezmoi.hostname "declarch-laptop" }}
+hl.on("config.reloaded", start_lid_sleep_services)
+{{ end }}

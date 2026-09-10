@@ -25,6 +25,7 @@
       "custom/gpu",
       {{ else }}
       "battery",
+      "custom/lid-sleep",
       {{ end }}
       "memory",
       "temperature",
@@ -141,6 +142,14 @@
       "warning": 30,
       "critical": 15
     }
+  },
+  "custom/lid-sleep": {
+    "interval": 2,
+    "exec": "~/.config/waybar/scripts/lid-sleep.sh status",
+    "return-type": "json",
+    "format": "{text}",
+    "on-click": "~/.config/waybar/scripts/lid-sleep.sh toggle",
+    "tooltip": true
   },
   "memory": {
     "interval": 5,
