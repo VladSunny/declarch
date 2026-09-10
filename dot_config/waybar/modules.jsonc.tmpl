@@ -23,6 +23,8 @@
       "cpu",
       {{ if eq .chezmoi.hostname "declarch-pc" }}
       "custom/gpu",
+      {{ else }}
+      "battery",
       {{ end }}
       "memory",
       "temperature",
@@ -121,6 +123,24 @@
     "format": "󰢮  {text}",
     "hide-empty-text": true,
     "on-click": "kitty --class btop -e btop"
+  },
+  "battery": {
+    "interval": 30,
+    "full-at-plugged": true,
+    "format": "{icon}  {capacity}%",
+    "format-charging": "󰂄  {capacity}%",
+    "format-plugged": "󰚥  {capacity}%",
+    "format-full": "󰁹  {capacity}%",
+    "format-icons": ["󰂎", "󰁺", "󰁼", "󰁾", "󰂀", "󰂂", "󰁹"],
+    "format-time": "{H}h {M}m",
+    "tooltip-format": "󰁹  {capacity}%\n󰔟  {timeTo}",
+    "tooltip-format-charging": "󰂄  {capacity}%\n󰔟  {timeTo}",
+    "tooltip-format-plugged": "󰚥  {capacity}%\n󰔟  {timeTo}",
+    "tooltip-format-full": "󰁹  {capacity}%\n󰔟  Full",
+    "states": {
+      "warning": 30,
+      "critical": 15
+    }
   },
   "memory": {
     "interval": 5,

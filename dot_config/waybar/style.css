@@ -73,6 +73,7 @@ menu menuitem:hover {
 #mpris,
 #cpu,
 #custom-gpu,
+#battery,
 #memory,
 #temperature,
 #disk,
@@ -94,6 +95,7 @@ menu menuitem:hover {
 #mpris:hover,
 #cpu:hover,
 #custom-gpu:hover,
+#battery:hover,
 #memory:hover,
 #temperature:hover,
 #disk:hover,
@@ -141,9 +143,16 @@ menu menuitem:hover {
     color: @base;
 }
 
+#battery.charging,
+#battery.plugged,
+#battery.full {
+    color: @sage;
+}
+
 /* Hardware stays neutral until a threshold needs attention. */
 #cpu.warning,
 #custom-gpu.warning,
+#battery.warning,
 #memory.warning,
 #temperature.warning,
 #disk.warning {
@@ -152,6 +161,7 @@ menu menuitem:hover {
 
 #cpu.critical,
 #custom-gpu.critical,
+#battery.critical,
 #memory.critical,
 #temperature.critical,
 #disk.critical {
