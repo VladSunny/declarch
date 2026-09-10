@@ -20,5 +20,7 @@ packages = [
   "fuse2",
 
   "vlc",
-  "vlc-plugins-all"
+  "vlc-plugins-all",
+
+  "swayimg"
 ]
