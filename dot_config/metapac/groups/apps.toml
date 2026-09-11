@@ -22,5 +22,7 @@ packages = [
   "vlc",
   "vlc-plugins-all",
 
-  "swayimg"
+  "swayimg",
+
+  "qbittorrent"
 ]
