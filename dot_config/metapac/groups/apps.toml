@@ -24,5 +24,6 @@ packages = [
 
   "swayimg",
 
-  "qbittorrent"
+  "qbittorrent",
+  "zoom"
 ]
