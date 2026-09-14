@@ -1,0 +1,12 @@
+{
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "workbench.colorTheme": "Tomorrow Night Blue",
+    "git.confirmSync": false,
+    "workbench.iconTheme": "vscode-icons",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmPasteNative": false,
+    "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font Mono', monospace",
+    "editor.fontFamily": "'JetBrains Mono', monospace",
+    "editor.fontLigatures": true
+}
