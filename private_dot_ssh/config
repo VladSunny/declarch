@@ -25,3 +25,16 @@ Host vladpn-hiplet
     ExitOnForwardFailure yes
     ServerAliveInterval 30
     ServerAliveCountMax 3
+
+
+Host declarch-pc
+    HostName 79.164.34.195
+    Port 22867
+    User vladg00dman
+
+    IdentityFile ~/.ssh/id_ed25519
+    IdentitiesOnly yes
+
+    ExitOnForwardFailure yes
+    ServerAliveInterval 30
+    ServerAliveCountMax 3
