@@ -8,5 +8,9 @@
     "explorer.confirmPasteNative": false,
     "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font Mono', monospace",
     "editor.fontFamily": "'JetBrains Mono', monospace",
-    "editor.fontLigatures": true
+    "editor.fontLigatures": true,
+    "remote.SSH.connectTimeout": 120,
+    "remote.SSH.maxReconnectionAttempts": 2,
+    "remote.SSH.defaultForwardedPorts": [],
+    "remote.SSH.enableRemoteCommand": true
 }

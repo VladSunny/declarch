@@ -27,7 +27,7 @@ Host vladpn-hiplet
     ServerAliveCountMax 3
 
 
-Host declarch-pc
+Host declarch-pc declarch-pc-vscode
     HostName 79.164.34.195
     Port 22867
     User vladg00dman
@@ -38,3 +38,7 @@ Host declarch-pc
     ExitOnForwardFailure yes
     ServerAliveInterval 30
     ServerAliveCountMax 3
+
+
+Host declarch-pc-vscode
+    RemoteCommand /usr/bin/bash
