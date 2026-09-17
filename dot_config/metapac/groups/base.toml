@@ -9,7 +9,9 @@ packages = [
   "sudo",
   "grub",
   "efibootmgr",
+  "fail2ban",
   "mkinitcpio",
+  "nftables",
   "openssh",
   "wget",
 
