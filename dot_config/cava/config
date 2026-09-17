@@ -1,0 +1,39 @@
+## Terminal spectrum visualizer for the smoky desktop theme.
+
+[general]
+
+# Adapt sensitivity to the current system output and stop rendering after silence.
+autosens = 1
+sleep_timer = 2
+
+# Fill the terminal with a compact, centered spectrum.
+bars = 0
+bar_width = 1
+bar_spacing = 0
+center_align = 1
+
+
+[input]
+
+# Capture the monitor of the current PipeWire default output.
+method = pipewire
+source = auto
+
+
+[output]
+
+# Keep terminal rendering lightweight and use one averaged spectrum.
+method = noncurses
+channels = mono
+mono_option = average
+show_idle_bar_heads = 0
+
+
+[color]
+
+# Smoky palette: lavender at the base, fading into quiet light above.
+background = '#171A21'
+gradient = 1
+gradient_color_1 = '#B7A7D8'
+gradient_color_2 = '#ADB5C5'
+gradient_color_3 = '#D5DAE5'
