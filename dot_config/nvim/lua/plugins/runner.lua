@@ -10,6 +10,11 @@ return {
             "g++ -std=c++23 -Wall -Wextra -O2 $fileName -o $fileNameWithoutExt &&",
             "$dir/$fileNameWithoutExt",
           },
+
+          python = {
+            "cd $dir &&",
+            "uv run $fileName",
+          },
         },
 
         mode = "term",
