@@ -8,6 +8,7 @@ packages = [
   "sof-firmware",
   "sudo",
   "grub",
+  "os-prober",
   "efibootmgr",
   "fail2ban",
   "mkinitcpio",

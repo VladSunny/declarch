@@ -1,0 +1,37 @@
+{{- if and (or (eq .chezmoi.hostname "declarch-pc") (eq .chezmoi.hostname "declarch-laptop")) (eq .chezmoi.osRelease.id "arch") -}}
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+GRUB_DEFAULTS=/etc/default/grub
+
+fail() {
+    echo "GRUB OS detection setup failed: $*" >&2
+    exit 1
+}
+
+require_command() {
+    local command_name="$1"
+
+    command -v "$command_name" >/dev/null 2>&1 || fail "required command '$command_name' is unavailable."
+}
+
+if (( EUID == 0 )); then
+    fail "run chezmoi as a regular user, not root."
+fi
+
+require_command grub-mkconfig
+require_command os-prober
+require_command sudo
+
+[[ -f "$GRUB_DEFAULTS" ]] || fail "required file '$GRUB_DEFAULTS' is unavailable."
+
+echo "Enabling GRUB detection of other operating systems..."
+sudo sed -i -E '/^[[:space:]]*#?[[:space:]]*GRUB_DISABLE_OS_PROBER=/d' "$GRUB_DEFAULTS"
+echo 'GRUB_DISABLE_OS_PROBER=false' | sudo tee -a "$GRUB_DEFAULTS" >/dev/null
+
+echo "Regenerating GRUB configuration..."
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+echo "GRUB OS detection setup completed successfully."
+{{- end }}
