@@ -39,6 +39,15 @@ hl.window_rule ({
 })
 
 hl.window_rule ({
+    name = "macroquad app",
+    match = {
+        class = "miniquad-application"
+    },
+    float = true,
+    center = true,
+})
+
+hl.window_rule ({
     name = "telegram",
     match = {
         class = "org.telegram.desktop",
