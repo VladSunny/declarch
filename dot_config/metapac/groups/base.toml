@@ -18,6 +18,7 @@ packages = [
 
   "paru",
   "paru-debug",
+  "flatpak",
 
   "fish",
   "fisher",
