@@ -12,6 +12,8 @@ packages = [
   "visual-studio-code-bin",
 
   # Python
+  "python",
+  "python-pip",
   "uv",
 
   # C++

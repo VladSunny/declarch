@@ -23,5 +23,7 @@ packages = [
   "fish",
   "fisher",
 
+  "imagemagick",
+
   "downgrade"
 ]
