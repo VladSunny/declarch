@@ -1,6 +1,7 @@
 [arch]
 packages = [
   # Utils
+  "fd",
   "git",
   "git-lfs",
   "lazygit",
