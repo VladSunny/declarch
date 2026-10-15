@@ -16,6 +16,9 @@ packages = [
   "openssh",
   "wget",
 
+  "gnome-keyring",
+  "libsecret",
+
   "paru",
   "paru-debug",
   "flatpak",
