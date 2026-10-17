@@ -35,6 +35,8 @@ packages = [
   # Rust
   "rustup",
   "rust-analyzer",
+
+  "jdk-openjdk",
 ]
 
 [npm]
