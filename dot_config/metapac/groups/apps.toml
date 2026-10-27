@@ -25,5 +25,7 @@ packages = [
   "swayimg",
 
   "qbittorrent",
-  "zoom"
+  "zoom",
+
+  "happ-desktop-bin"
 ]
