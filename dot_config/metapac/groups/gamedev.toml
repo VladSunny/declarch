@@ -1,6 +1,7 @@
 [arch]
 packages = [
     "unityhub",
+    "unity-cli-bin",
     "dotnet-runtime",
     "dotnet-sdk",
     "mono",
