@@ -1,7 +1,7 @@
 [arch]
 packages = [
     "unityhub",
-    "unity-cli-bin",
+    # "unity-cli-bin", curl -fsSL https://unity.com/install.sh | bash
     "dotnet-runtime",
     "dotnet-sdk",
     "mono",
