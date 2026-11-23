@@ -11,7 +11,6 @@ application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
 x-scheme-handler/discord-1216669957799018608=discord-1216669957799018608.desktop
 application/pdf=firefox.desktop
-
 image/avif=swayimg.desktop
 image/bmp=swayimg.desktop
 image/gif=swayimg.desktop
@@ -34,6 +33,7 @@ image/x-portable-graymap=swayimg.desktop
 image/x-portable-pixmap=swayimg.desktop
 image/x-targa=swayimg.desktop
 image/x-tga=swayimg.desktop
+x-scheme-handler/unityhub=unityhub.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;

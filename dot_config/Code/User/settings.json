@@ -12,5 +12,17 @@
     "remote.SSH.connectTimeout": 120,
     "remote.SSH.maxReconnectionAttempts": 2,
     "remote.SSH.defaultForwardedPorts": [],
-    "remote.SSH.enableRemoteCommand": true
+    "remote.SSH.enableRemoteCommand": true,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+        "python": false
+    },
+    "jupyter.widgetScriptSources": [
+        "jsdelivr.com",
+        "unpkg.com"
+    ],
+    "notebook.output.textLineLimit": 100
 }

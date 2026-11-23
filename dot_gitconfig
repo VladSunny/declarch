@@ -1,3 +1,5 @@
 [user]
 	name = vladg00dman
 	email = vladislavsunny@gmail.com
+[credential]
+	helper = /usr/lib/git-core/git-credential-libsecret
