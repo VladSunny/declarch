@@ -1,0 +1,16 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "theme": {
+    "name": "palenight",
+    "mode": "dark"
+  },
+  "animations": true,
+  "session": {
+    "sidebar": "hide",
+    "scrollbar": true,
+    "thinking": "show"
+  },
+  "tabs": {
+    "indicators": "status"
+  }
+}
